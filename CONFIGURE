@@ -1,0 +1,6 @@
+
+pip3 install --user pandas
+pip3 install --user icalendar
+pip3 install --user pycurl 
+
+
