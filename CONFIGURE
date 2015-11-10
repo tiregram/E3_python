@@ -1,6 +1,11 @@
 
-pip3 install --user pandas
-pip3 install --user icalendar
-pip3 install --user pycurl 
 
+
+listPack=( pandas icalendar pucurl )
+for i in $listPack;
+do 
+	sucess= pip:q
+	if 
+	pip3 install --user $i 
+done;
 

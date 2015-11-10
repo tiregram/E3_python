@@ -5,3 +5,6 @@ BUT
 REcupération de l'agenda => traitement des donné	=> Rendue sur une map
 													=> Rendue sur une courbe
 
+Launch
+1 : ./CONFIGURE
+2 : ./ESIEEPlanif 
