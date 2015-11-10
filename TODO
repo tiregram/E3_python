@@ -3,6 +3,9 @@
 INTERFACE TKINTER
 INTERFACE 3D
 GRAPHIQUE COURBE (pandas)
+	Sale la plus visité
+	Heure la plus presente a l'esiee
+	...		
 
 ====DOING====
 
