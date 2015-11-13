@@ -6,7 +6,5 @@ df=pd.DataFrame(
             'pop':[1.2,1.5,1.7,1.8]
             }
         )
-df.describe()
-graph =  df.plot(x='year', y='pop') 
-print(dir(graph))  
-print(df)
+
+print(df.plot(x='year', y='pop'))
