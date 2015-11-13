@@ -1,11 +1,6 @@
-
-
-
 listPack=( pandas icalendar pucurl )
-for i in $listPack;
+for i in $listPack
 do 
-	sucess= pip:q
-	if 
 	pip3 install --user $i 
-done;
+done
 
