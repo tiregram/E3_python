@@ -1,4 +1,4 @@
-listPack=( pandas icalendar pucurl )
+listPack=( pandas icalendar pycurl )
 for i in $listPack
 do 
 	pip3 install --user $i 

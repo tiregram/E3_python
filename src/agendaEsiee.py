@@ -1,10 +1,28 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
-df=pd.DataFrame(
-        {   'info':["a","b","c","d"],
-            'year':[10,20,30,40],
-            'pop':[1.2,1.5,1.7,1.8]
-            }
-        )
 
-print(df.plot(x='year', y='pop'))
+
+def orderBy(lis):
+    sh = dict()
+    for fe in lis:
+        if 'LOCATION'not in fe:
+            continue
+
+        key = fe['LOCATION'].title()
+        print(key)
+        if key in sh:
+           sh[key] = 1 + sh[key]
+        else:
+           sh[key] = 1
+
+    print(sh)
+    return pd.DataFrame(
+            {
+                "piece":list(sh.keys()),
+                "nbDecours":list(sh.values())
+            })
+
+def render(df):
+    df.plot(kind='bar');
+    plt.show()
