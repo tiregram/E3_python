@@ -1,6 +1,10 @@
 =====TODO=====
 
 INTERFACE TKINTER
+	-> date debut
+	-> date fin 
+	-> generate
+
 INTERFACE 3D
 GRAPHIQUE COURBE (pandas)
 	Sale la plus visité
