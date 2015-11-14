@@ -1,6 +1,7 @@
-listPack=( pandas icalendar pycurl )
-for i in $listPack
-do 
-	pip3 install --user $i 
+
+for i in  icalendar pandas pycurl matplotlib numexpr 
+do
+	echo install $i
+	pip3 install --user -U $i 
 done
 

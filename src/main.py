@@ -52,7 +52,6 @@ class DateDataForm:
                 c.setopt(c.URL,"https://planif.esiee.fr:8443/jsp/custom/modules/plannings/ical.jsp?"+self.getDateToUrl()+"&ClientCal=palm")
                 c.setopt(c.WRITEDATA,f)
                 c.perform()
-                print("i pass")
                 f.close()
                 c.close()
 
@@ -97,22 +96,27 @@ class DateDataForm:
                 oneElement = dict()
                 for nameOfParam in lis:
                     if nameOfParam in  data.keys():    
-                        #TODO export all data in nice form
                         oneElement[nameOfParam] = oneRDV[nameOfParam]
                     else:
                         print (nameOfParam +"n'est pas valide ")
                 
+                    
                 returnlist.append(oneElement);
 
         return returnlist;
              
 
 lap = DateDataForm()
-lap.online = True
-dico = lap.getDict('LOCATION','DESCRIPTION','DATE')
+lap.online = False 
+dico = lap.getDict('LOCATION','DESCRIPTION','DTSTART','DTEND')
 import agendaEsiee
 bb = agendaEsiee.orderBy(dico)
+## super filter
+
+#bb = agendaEsiee.removeRoom(bb,"Vi")
+#bb = agendaEsiee.onlyRoom(bb,"0110")
+bb = agendaEsiee.conditionRoom(bb,'[0-9]4[0-9]{2}')
+
 print(bb)
 agendaEsiee.render(bb)
-
 
