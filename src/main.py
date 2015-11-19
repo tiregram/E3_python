@@ -29,7 +29,10 @@ def getData(form):
        dc = dc.conditionRoom(form.groupSelected.get())
     
     if form.uniqueDelete.get():
-       dc = dc.onlyRoom(form.uniqueDeleted.get())
+        dc = dc.removeRoom(form.uniqueDeleted.get())
+    if form.groupDelete.get():
+       dc = dc.conditionRoomRemove(form.groupDeleted.get())
+
 
 
     dc.render()

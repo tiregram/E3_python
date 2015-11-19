@@ -37,15 +37,19 @@ class DataCal(pd.DataFrame):
 
     def removeRoom(self , roomsToRemove):
         roomList = roomsToRemove.split(',');
-        return self.query('piece not in @roomList')
+        return DataCal(self.query('piece not in @roomList'))
 
 
     def conditionRoom(self,exprre):
         self['test'] = self.piece.str.match(exprre)
         
         return  DataCal(self.query('test == True').drop('test',1))
+    
+    def conditionRoomRemove(self,exprre):
+        self['test'] =  self.piece.str.match(exprre)
         
-        #TODO remove test colums
+        return  DataCal(self.query('test != True').drop('test',1))
+         
         
     def render(self):
         self.plot(kind='bar');
