@@ -161,7 +161,7 @@ class Frame(tkinter.Tk):
         if(self.option_file.get()==1):
 
             file_name = askopenfilename(filetypes=(("ICS Files", "*.ics"),("All files", "*.*")))
-            self.file_path.set(file_name)
+            self.file_path.set("File Path : "+file_name)
         else:
             showerror("You can't", "The file browser is disable.")
 
@@ -210,13 +210,13 @@ class Frame(tkinter.Tk):
 
         self.information_label_string.set("Date 1 : "+ ("valide" if mat1 else ("invalid" + mess1)) + " , Date 2 : "+ ("valide" if mat2 else ("invalid" + mess2)))
 
-        if(mat1 and mat2):
-            self.funcToCall(self)
+       if(mat1 and mat2):
+            sefl.func();
 
                 
 
 
-#if __name__ == "__main__":
-#    app = Frame(None)
-#    app.mainloop()
+if __name__ == "__main__":
+    app = Frame(None)
+    app.mainloop()
     
