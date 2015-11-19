@@ -24,8 +24,14 @@ def getData(form):
     dc = DataCal.DataCal.BuilderDataCal(lis)
     if form.uniqueSelect.get():
        dc = dc.onlyRoom(form.uniqueSelected.get())
+
     if form.groupSelect.get():
        dc = dc.conditionRoom(form.groupSelected.get())
+    
+    if form.uniqueDelete.get():
+       dc = dc.onlyRoom(form.uniqueDeleted.get())
+
+
     dc.render()
 
 ## super filter

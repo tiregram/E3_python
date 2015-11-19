@@ -42,7 +42,9 @@ class DataCal(pd.DataFrame):
 
     def conditionRoom(self,exprre):
         self['test'] = self.piece.str.match(exprre)
-        return DataCal(self.query('test == True'))
+        
+        return  DataCal(self.query('test == True').drop('test',1))
+        
         #TODO remove test colums
         
     def render(self):
