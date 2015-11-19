@@ -41,8 +41,8 @@ class DataCal(pd.DataFrame):
 
 
     def conditionRoom(self,exprre):
-        self['test'] = bb.piece.str.match(exprre)
-        return self.query('test == True')
+        self['test'] = self.piece.str.match(exprre)
+        return DataCal(self.query('test == True'))
         #TODO remove test colums
         
     def render(self):
