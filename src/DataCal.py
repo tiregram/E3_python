@@ -13,21 +13,18 @@ class DataCal(pd.DataFrame):
 
             keys = fe['LOCATION'].title()
             #some event are place to many room
-            for key in keys.split(","):    
+            for key in keys.split(","):
                 #TODO il ny a pas de check sur les evenement sur plusieur jour 
                 if key in sh:
                     sh[key] = fe['DTEND'].dt.hour-fe['DTSTART'].dt.hour + sh[key]
                 else:
                     sh[key] = fe['DTEND'].dt.hour-fe['DTSTART'].dt.hour
-
         retDataFrame = DataCal(
             {
                 "piece":list(sh.keys()),
                 "HD":list(sh.values())
             })
-
         retDataFrame = DataCal(retDataFrame.sort_values('HD'))
-        
         return retDataFrame
 
     def onlyRoom(self,  roomsToRemove):
@@ -52,10 +49,16 @@ class DataCal(pd.DataFrame):
          
         
     def render(self):
+        moyeneetc = self.describe()
+        self.mean()
         self.plot(kind='bar');
+        plt.axhline(y=moyeneetc.HD["mean"], color='r')
+        plt.axhline(moyeneetc.HD["25%"])
+        plt.axhline(moyeneetc.HD["50%"])
+        plt.axhline(moyeneetc.HD["75%"])
         plt.ylabel('heure')
         plt.xlabel('piece')
         plt.title('Ocupation des pieces')
-        plt.xticks(range(0,len(self.piece)), self.piece ,rotation='vertical') 
+        plt.xticks(range(0, len(self.piece)), self.piece , rotation='vertical') 
         plt.show()
 
