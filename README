@@ -2,9 +2,11 @@ PROJET de python esiee 2015
 
 BUT
 
-REcupération de l'agenda => traitement des donné	=> Rendue sur une map
-													=> Rendue sur une courbe
+Récupération de l'agenda depuis un fichier ou en ligne.
+Parsing
+Mise en place de pandas
+
 
 Launch
 1 : ./CONFIGURE
-2 : ./ESIEEPlanif 
+2 : python3 src/main.py
