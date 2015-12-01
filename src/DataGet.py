@@ -64,8 +64,9 @@ class DateDataForm:
 
 
         return
-
+#appel icalendar
     def parseICS(self):
+        #check sur online est are dowload
         if(self.online == True and self.areDownload == False):
             self.getICS()
 
@@ -76,6 +77,7 @@ class DateDataForm:
 
         return
 
+#permet de faire une liste de dict avec les evenements.
     def getDict(self, *lis):
 
         returnlist = list()
